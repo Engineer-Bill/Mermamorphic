@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ThinWall_RightEdge_0: 1369712698742200269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

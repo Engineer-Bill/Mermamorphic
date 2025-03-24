@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pearl_OpenBlue_0: -219877472691209998
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

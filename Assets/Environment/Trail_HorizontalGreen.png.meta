@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Trail_HorizontalGreen_0: -883473109820540274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

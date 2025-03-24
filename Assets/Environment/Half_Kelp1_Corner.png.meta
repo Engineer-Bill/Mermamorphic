@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Half_Kelp1_Corner_0: 2251730210968117334
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

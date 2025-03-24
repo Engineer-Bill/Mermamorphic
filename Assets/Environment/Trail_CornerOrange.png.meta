@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Trail_CornerOrange_0: -2146370305823146766
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - BreakableWall
+  - Switch
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BreakableWall
   - Water
   - UI
   - 

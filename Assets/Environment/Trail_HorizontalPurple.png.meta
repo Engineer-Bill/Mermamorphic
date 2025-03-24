@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Trail_HorizontalPurple_0: -7907242314723157528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
