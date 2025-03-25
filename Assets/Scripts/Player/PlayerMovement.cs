@@ -7,12 +7,14 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     Rigidbody2D _rb;
     private Vector2 _movementVelocity;
+    private SpriteRenderer _spriteRenderer;
 
     private bool _canMove;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -26,6 +28,12 @@ public class PlayerMovement : MonoBehaviour
         {
             _movementVelocity = context.ReadValue<Vector2>();
             _canMove = true;
+            _spriteRenderer.flipX = _movementVelocity.x switch
+            {
+                < 0 => true,
+                > 0 => false,
+                _ => _spriteRenderer.flipX
+            };
         }
         else if (context.canceled)
         {
