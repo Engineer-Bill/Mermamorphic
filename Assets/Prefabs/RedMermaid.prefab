@@ -290,6 +290,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedMermaid
       objectReference: {fileID: 0}
+    - target: {fileID: 3758315213375504749, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
+      propertyPath: _color
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4312293412769332050, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -350,7 +354,7 @@ PrefabInstance:
       addedObject: {fileID: 5976961066685353480}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2009617690356525687, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
-      insertIndex: 7
+      insertIndex: -1
       addedObject: {fileID: 5010615093791236523}
   m_SourcePrefab: {fileID: 100100000, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
 --- !u!1 &1130989651974208847 stripped

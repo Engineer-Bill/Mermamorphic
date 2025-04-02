@@ -9,9 +9,9 @@ public class TailSmash : MonoBehaviour
 
     private bool canSmash = true;
 
-    void Update()
+    void OnAbility()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canSmash) // Change key if needed
+        if (canSmash)
         {
             PerformSmash();
         }

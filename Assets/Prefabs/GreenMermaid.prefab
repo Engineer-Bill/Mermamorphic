@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4148557930614873640
+--- !u!1001 &4640120083299109687
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2009617690356525687, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
       propertyPath: m_Name
-      value: YellowMermaid
+      value: GreenMermaid
       objectReference: {fileID: 0}
     - target: {fileID: 3758315213375504749, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
       propertyPath: _color
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4312293412769332050, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,6 +58,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7817958844736909007, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
       propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817958844736909007, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817958844736909007, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4163806492221325403}
   - component: {fileID: 4983159298819592814}
+  - component: {fileID: 6545939650413004262}
   m_Layer: 0
   m_Name: MermaidManager
   m_TagString: Untagged
@@ -54,8 +55,44 @@ MonoBehaviour:
     _prefab: {fileID: 989266565073231685, guid: 93fd62a8abb23974e94c173367cc75ee, type: 3}
   - _color: 3
     _prefab: {fileID: 8150445712613119248, guid: f5e5b772f55450f4da5ef8fd2ecf9e5b, type: 3}
+  - _color: 4
+    _prefab: {fileID: 7368898946915173267, guid: 90d151cef1ed1414f99503dd65ba1589, type: 3}
+  - _color: 5
+    _prefab: {fileID: 8380411001480317530, guid: facda96561d9d4c4b926f0610937147a, type: 3}
+  - _color: 6
+    _prefab: {fileID: 9174908538830018363, guid: f0e704ceb78c8f34e9b79df83cf541e8, type: 3}
   _activeMermaid: {fileID: 0}
   _camera: {fileID: 0}
+--- !u!114 &6545939650413004262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364122853200757219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &3486144139577830041
 PrefabInstance:
   m_ObjectHideFlags: 0

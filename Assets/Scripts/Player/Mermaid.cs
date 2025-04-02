@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 public class Mermaid : MonoBehaviour
 {
@@ -7,12 +9,63 @@ public class Mermaid : MonoBehaviour
     [SerializeField]
     private Color _color;
 
+    [SerializeField]
+    private Collider2D _mergeCheckCollider;
+
+    static ContactFilter2D _filter = new ContactFilter2D();
 
     public Color GetColor()
     {
         return _color;
     }
 
+    public void OnCombine(CallbackContext context)
+    {
+        if (!context.performed)
+        {
+            // Early return if the button wasn't just pressed.
+            return;
+        }
+        var colliders = new List<Collider2D>();
+
+        _filter.NoFilter();
+        _mergeCheckCollider.Overlap(_filter, colliders);
+
+        Mermaid bestMerge = null;
+        float bestMergeDistanceSq = float.MaxValue;
+
+        foreach (var collider in colliders)
+        {
+            Mermaid other = collider.attachedRigidbody.GetComponent<Mermaid>();
+            float distanceSq = (other.transform.position - transform.position).sqrMagnitude;
+
+            if (distanceSq < bestMergeDistanceSq)
+            {
+                bestMerge = other;
+            }
+        }
+
+        var manager = GetComponentInParent<MermaidManager>();
+        if (bestMerge != null && manager != null)
+        {
+            manager.Merge(this, bestMerge);
+        }
+    }
+
+    public void OnSplit(CallbackContext context)
+    {
+        if (!context.performed)
+        {
+            // Early return if the button wasn't just pressed.
+            return;
+        }
+
+        var manager = GetComponentInParent<MermaidManager>();
+        if (manager != null)
+        {
+            manager.Split(this);
+        }
+    }
 }
 
 static class ColorExtensions
