@@ -4,18 +4,19 @@ using System.Collections;
 public class Door : MonoBehaviour
 {
     private Vector3 closedPosition;
-    public Vector3 openPosition; // The position of the door when it's open
+    public Vector3 openPositionOffset; // The position of the door when it's open
     public float moveSpeed = 2f; // Speed at which the door moves
 
     private void Start()
     {
         closedPosition = transform.position; // Store the initial position as the closed position
+
     }
 
     public void OpenDoor()
     {
         StopAllCoroutines(); // Stop any door movement if it was in progress
-        StartCoroutine(MoveDoor(openPosition)); // Move the door to the open position
+        StartCoroutine(MoveDoor(closedPosition + openPositionOffset)); // Move the door to the open position
     }
 
     public void CloseDoor()

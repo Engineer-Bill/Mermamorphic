@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     Rigidbody2D _rb;
     private Vector2 _movementVelocity;
+    [SerializeField]
     private SpriteRenderer _spriteRenderer;
 
     private bool _canMove;
@@ -14,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()

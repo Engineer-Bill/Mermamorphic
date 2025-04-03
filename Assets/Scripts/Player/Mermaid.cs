@@ -36,7 +36,15 @@ public class Mermaid : MonoBehaviour
 
         foreach (var collider in colliders)
         {
+            if (collider.attachedRigidbody == null)
+            {
+                continue;
+            }
             Mermaid other = collider.attachedRigidbody.GetComponent<Mermaid>();
+            if (other == null)
+            {
+                continue;
+            }
             float distanceSq = (other.transform.position - transform.position).sqrMagnitude;
 
             if (distanceSq < bestMergeDistanceSq)

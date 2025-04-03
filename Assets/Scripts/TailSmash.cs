@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public class TailSmash : MonoBehaviour
@@ -9,8 +10,9 @@ public class TailSmash : MonoBehaviour
 
     private bool canSmash = true;
 
-    void OnAbility()
+    public void OnAbility(InputAction.CallbackContext context)
     {
+        if (!context.performed) return;
         if (canSmash)
         {
             PerformSmash();
