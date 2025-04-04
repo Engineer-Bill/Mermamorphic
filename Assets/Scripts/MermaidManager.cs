@@ -4,8 +4,41 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
+public struct MermaidChange
+{
+    public Mermaid _active;
+    public Mermaid[] _created;
+    public Mermaid[] _destroyed;
+
+    public MermaidChange(Mermaid active)
+    {
+        _active = active;
+        _created = new Mermaid[0];
+        _destroyed = new Mermaid[0];
+    }
+
+    public MermaidChange(Mermaid active, List<Mermaid> created, List<Mermaid> destroyed)
+    {
+        _active = active;
+        _created = created.ToArray();
+        _destroyed = destroyed.ToArray();
+    }
+
+    public bool WasDestroyed(Mermaid mermaid)
+    {
+        foreach (Mermaid destroyed in _destroyed)
+        {
+            if (destroyed == mermaid)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
 [System.Serializable]
-public class ChangedMermaidEvent : UnityEvent<Mermaid> { }
+public class ChangedMermaidEvent : UnityEvent<MermaidChange> { }
 
 public class MermaidManager : MonoBehaviour
 {
@@ -27,13 +60,25 @@ public class MermaidManager : MonoBehaviour
 
     public ChangedMermaidEvent _changedMermaid;
 
+    private static MermaidManager _singleton;
+
+    public static MermaidManager GetSingleton()
+    {
+        return _singleton;
+    }
+
+    public void Awake()
+    {
+        _singleton = this;
+    }
+
     public void Start()
     {
         if (_activeMermaid == null)
         {
             _activeMermaid = GetMermaids()[0];
         }
-        SetActiveMermaid(_activeMermaid);
+        AlertChanged(new MermaidChange(_activeMermaid));
     }
 
     public void Update()
@@ -74,7 +119,7 @@ public class MermaidManager : MonoBehaviour
         }
         currentIndex += offset + mermaids.Count;
         currentIndex = currentIndex % mermaids.Count;
-        SetActiveMermaid(mermaids[currentIndex]);
+        AlertChanged(new MermaidChange(mermaids[currentIndex]));
     }
 
     public Mermaid GetActiveCharacter()
@@ -117,7 +162,7 @@ public class MermaidManager : MonoBehaviour
         Destroy(mermaid2.gameObject);
         var result = Instantiate<Mermaid>(prefab, transform);
         result.transform.position = newMermaidPosition;
-        SetActiveMermaid(result);
+        AlertChanged(new MermaidChange(result, new List<Mermaid> { result }, new List<Mermaid> { mermaid1, mermaid2 }));
         return result;
     }
 
@@ -138,16 +183,17 @@ public class MermaidManager : MonoBehaviour
             var mermaid2 = Instantiate<Mermaid>(mermaidPrefab2, transform);
             mermaid1.transform.position = newMermaidPosition;
             mermaid2.transform.position = newMermaidPosition;
-            SetActiveMermaid(mermaid1);
+            AlertChanged(new MermaidChange(mermaid1, new List<Mermaid> { mermaid1, mermaid2 }, new List<Mermaid> { mermaid }));
         }
     }
 
-    private void SetActiveMermaid(Mermaid mermaid)
+    private void AlertChanged(MermaidChange change)
     {
-        _activeMermaid = mermaid;
+        _activeMermaid = change._active;
         _camera.target = _activeMermaid.transform;
-        _changedMermaid.Invoke(_activeMermaid);
+        _changedMermaid.Invoke(change);
     }
+
     private Mermaid GetMermaid(Mermaid.Color color)
     {
         foreach (var entry in _mermaidPrefabs)

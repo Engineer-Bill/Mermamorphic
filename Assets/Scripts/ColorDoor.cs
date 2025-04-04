@@ -6,7 +6,7 @@ public class ColorDoor : MonoBehaviour
     [SerializeField]
     private Mermaid.Color _color;
 
-    private UnityAction<Mermaid> _changedPlayerAction;
+    private UnityAction<MermaidChange> _changedPlayerAction;
     private Collider2D _collider;
 
     void Start()
@@ -16,19 +16,24 @@ public class ColorDoor : MonoBehaviour
 
         _collider = GetComponent<Collider2D>();
 
-        _changedPlayerAction += OnPlayerChanged;
+        _changedPlayerAction += RespondToMerge;
 
-        var managers = FindObjectsByType<MermaidManager>(FindObjectsSortMode.None);
-        managers[0]._changedMermaid.AddListener(_changedPlayerAction);
-        Mermaid activeMermaid = managers[0].GetActiveCharacter();
+        MermaidManager manager = MermaidManager.GetSingleton();
+        manager._changedMermaid.AddListener(_changedPlayerAction);
+        Mermaid activeMermaid = manager.GetActiveCharacter();
         if (activeMermaid) {
             OnPlayerChanged(activeMermaid);
         }
     }
 
-    void OnPlayerChanged(Mermaid newActiveMermaid)
+    void RespondToMerge(MermaidChange change)
     {
-        _collider.enabled = !PassesOtherColor(newActiveMermaid.GetColor());
+        OnPlayerChanged(change._active);
+    }
+
+    void OnPlayerChanged(Mermaid mermaid)
+    {
+        _collider.enabled = !PassesOtherColor(mermaid.GetColor());
     }
 
     bool PassesOtherColor(Mermaid.Color other)
