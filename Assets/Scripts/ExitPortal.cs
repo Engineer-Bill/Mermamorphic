@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class ExitPortal : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private SceneReference _nextScene;
+
+    private Collider2D _collision;
+
+    public void Start()
     {
-        
+        _collision = GetComponent<Collider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        
+        _nextScene.Load();
     }
 }
