@@ -153,4 +153,24 @@ static class ColorExtensions
             return (Mermaid.Color.None, Mermaid.Color.None);
         }
     }
+
+    public static Color GetColor(this Mermaid.Color color)
+    {
+        switch (color) {
+            case Mermaid.Color.Red:
+                return Color.red;
+            case Mermaid.Color.Yellow:
+                return Color.yellow;
+            case Mermaid.Color.Blue:
+                return Color.blue;
+            case Mermaid.Color.Orange:
+                return new Color(1.0f, 0.5f, 0);
+            case Mermaid.Color.Green:
+                return Color.green;
+            case Mermaid.Color.Purple:
+                return new Color(0.5f, 0, 1.0f);
+            default:
+                return Color.white;
+        }
+    }
 };

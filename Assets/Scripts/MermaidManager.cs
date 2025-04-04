@@ -2,6 +2,10 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class ChangedMermaidEvent : UnityEvent<Mermaid> { }
 
 public class MermaidManager : MonoBehaviour
 {
@@ -20,6 +24,8 @@ public class MermaidManager : MonoBehaviour
 
     [SerializeField]
     private CameraFollow _camera;
+
+    public ChangedMermaidEvent _changedMermaid;
 
     public void Start()
     {
@@ -69,6 +75,11 @@ public class MermaidManager : MonoBehaviour
         currentIndex += offset + mermaids.Count;
         currentIndex = currentIndex % mermaids.Count;
         SetActiveMermaid(mermaids[currentIndex]);
+    }
+
+    public Mermaid GetActiveCharacter()
+    {
+        return _activeMermaid;
     }
 
     /*
@@ -135,6 +146,7 @@ public class MermaidManager : MonoBehaviour
     {
         _activeMermaid = mermaid;
         _camera.target = _activeMermaid.transform;
+        _changedMermaid.Invoke(_activeMermaid);
     }
     private Mermaid GetMermaid(Mermaid.Color color)
     {
