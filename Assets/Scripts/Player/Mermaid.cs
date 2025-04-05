@@ -35,6 +35,16 @@ public class Mermaid : MonoBehaviour
         return false;
     }
 
+    public bool TryConsumeKey()
+    {
+        bool result = _pickedUpKey;
+        if (result)
+        {
+            Destroy(_pickedUpKey.gameObject);
+        }
+        return result;
+    }
+
     private void Start()
     {
         _changedPlayerAction += OnMermaidsChanged;
