@@ -18,6 +18,9 @@ public class Mermaid : MonoBehaviour
 
     private UnityAction<MermaidChange> _changedPlayerAction;
 
+    [SerializeField]
+    private Animator _animator;
+
     static ContactFilter2D _filter = new ContactFilter2D();
 
     public Color GetColor()
