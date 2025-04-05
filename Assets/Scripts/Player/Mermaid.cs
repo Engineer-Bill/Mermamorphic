@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEngine.InputSystem.InputAction;
 
 public class Mermaid : MonoBehaviour
@@ -12,12 +13,55 @@ public class Mermaid : MonoBehaviour
     [SerializeField]
     private Collider2D _mergeCheckCollider;
 
+    [SerializeField]
+    private Key _pickedUpKey;
+
+    private UnityAction<MermaidChange> _changedPlayerAction;
+
     static ContactFilter2D _filter = new ContactFilter2D();
 
     public Color GetColor()
     {
         return _color;
     }
+
+    public bool PickupKey(Key key)
+    {
+        if (!_pickedUpKey)
+        {
+            _pickedUpKey = key;
+            return true;
+        }
+        return false;
+    }
+
+    private void Start()
+    {
+        _changedPlayerAction += OnMermaidsChanged;
+        MermaidManager manager = MermaidManager.GetSingleton();
+        manager._changedMermaid.AddListener(_changedPlayerAction);
+    }
+
+
+    private void Update()
+    {
+        if (_pickedUpKey)
+        {
+            _pickedUpKey.Follow(this);
+        }
+    }
+
+    private void OnMermaidsChanged(MermaidChange change)
+    {
+        if (change.WasDestroyed(this) && _pickedUpKey)
+        {
+            if (change._active.PickupKey(_pickedUpKey))
+            {
+                _pickedUpKey = null;
+            }
+        }
+    }
+
 
     public void OnCombine(CallbackContext context)
     {
