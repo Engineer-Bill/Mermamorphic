@@ -4851,6 +4851,10 @@ PrefabInstance:
       propertyPath: _nextScene
       value: 
       objectReference: {fileID: 11400000, guid: 538adf51963b788409564066d5182dbf, type: 2}
+    - target: {fileID: 2102721841146128394, guid: b35bac3b2829486499e8df26f3bd6e98, type: 3}
+      propertyPath: _requiredMermaidsToLeave
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4766082959066986812, guid: b35bac3b2829486499e8df26f3bd6e98, type: 3}
       propertyPath: m_Name
       value: ExitPortal
