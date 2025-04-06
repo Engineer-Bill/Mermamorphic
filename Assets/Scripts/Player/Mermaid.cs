@@ -43,21 +43,21 @@ public class Mermaid : MonoBehaviour
         return false;
     }
 
-    public bool DropKey()
+    public Key DropKey()
     {
-        bool result = _pickedUpKey;
+        Key result = _pickedUpKey;
         _pickedUpKey = null;
         return result;
     }
 
     public bool TryConsumeKey()
     {
-        bool result = DropKey();
-        if (result)
+        Key droppedKey = DropKey();
+        if (droppedKey)
         {
-            Destroy(_pickedUpKey.gameObject);
+            Destroy(droppedKey.gameObject);
         }
-        return result;
+        return droppedKey;
     }
 
     private void Start()
