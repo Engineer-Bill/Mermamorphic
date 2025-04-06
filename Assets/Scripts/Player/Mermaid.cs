@@ -150,6 +150,15 @@ static class ColorExtensions
         return (self == Mermaid.Color.Orange || self == Mermaid.Color.Green || self == Mermaid.Color.Purple);
     }
 
+    public static int MermaidCount(this Mermaid.Color self)
+    {
+        if (self.IsPrimary())
+        {
+            return 1;
+        }
+        return 2;
+    }
+
     public static Mermaid.Color Merge(this Mermaid.Color self, Mermaid.Color other)
     {
         // Only primary colors can merge
