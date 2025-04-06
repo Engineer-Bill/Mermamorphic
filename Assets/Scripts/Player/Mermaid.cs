@@ -43,9 +43,16 @@ public class Mermaid : MonoBehaviour
         return false;
     }
 
-    public bool TryConsumeKey()
+    public bool DropKey()
     {
         bool result = _pickedUpKey;
+        _pickedUpKey = null;
+        return result;
+    }
+
+    public bool TryConsumeKey()
+    {
+        bool result = DropKey();
         if (result)
         {
             Destroy(_pickedUpKey.gameObject);
