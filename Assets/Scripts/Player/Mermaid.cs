@@ -28,6 +28,11 @@ public class Mermaid : MonoBehaviour
         return _color;
     }
 
+    public Key HeldKey()
+    {
+        return _pickedUpKey;
+    }
+
     public bool PickupKey(Key key)
     {
         if (!_pickedUpKey)

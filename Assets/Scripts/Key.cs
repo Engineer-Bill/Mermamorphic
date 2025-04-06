@@ -11,8 +11,23 @@ public class Key : MonoBehaviour
         MermaidManager manager = MermaidManager.GetSingleton();
         if (player && manager.GetActiveCharacter() == player)
         {
-            player.PickupKey(this);
+            if (!IsHeld())
+            {
+                player.PickupKey(this);
+            }
         }
+    }
+
+    public bool IsHeld()
+    {
+        foreach (Mermaid other in MermaidManager.GetSingleton().GetMermaids())
+        {
+            if (other.HeldKey() == this)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void Follow(Mermaid followedPlayer)
