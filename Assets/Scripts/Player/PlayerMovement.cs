@@ -35,16 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
         float currentAngle = Vector2.SignedAngle(Vector2.up, currentFacing);
 
-        if (_canMove)
-        {
-            _rb.MovePositionAndRotation(
-                _rb.position + _movementVelocity * (_speed * Time.fixedDeltaTime),
-                currentAngle + scaledRotation);
-        }
-        else
-        {
-            _rb.MoveRotation(currentAngle + scaledRotation);
-        }
+        _rb.MovePositionAndRotation(
+            _rb.position + _movementVelocity * (_speed * Time.fixedDeltaTime),
+            currentAngle + scaledRotation);
     }
 
     public void OnMove(InputAction.CallbackContext context)
