@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextScene: {fileID: 11400000, guid: 1c2f9a7508937384f9b44971f8eb11af, type: 2}
+  _levelList: {fileID: 11400000, guid: a23dfaab826b553408d95e7c39be094d, type: 2}
   _countText: {fileID: 6843381148997828753}
   _requiredMermaidsToLeave: 0
 --- !u!212 &876327381514366140

@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,22 @@ public class ExitPortal : MonoBehaviour
     private SceneReference _nextScene;
 
     [SerializeField]
+    private LevelList _levelList;
+
+    [SerializeField]
     private TextMesh _countText;
 
     [SerializeField]
     private int _requiredMermaidsToLeave;
 
     private Collider2D _collision;
+
+    public void Awake()
+    {
+        Assert.IsNotNull(_nextScene);
+        Assert.IsNotNull(_levelList);
+        Assert.IsNotNull(_countText);
+    }
 
     public void Start()
     {
@@ -63,11 +74,6 @@ public class ExitPortal : MonoBehaviour
 
     private void Exit()
     {
-        _nextScene.Load();
+        _levelList.MakeAvailable(_nextScene);
     }
-
-    /*private void OnTriggerEnter2D(Collider2D collider)
-    {
-        Exit();
-    }*/
 }
