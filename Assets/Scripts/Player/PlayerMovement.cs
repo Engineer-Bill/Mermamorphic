@@ -4,7 +4,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
+    [SerializeField]
+    private float _speed = 5f;
+    // In degrees
+    [SerializeField]
+    private float _rotationSpeed = 180f;
     Rigidbody2D _rb;
     private Vector2 _movementVelocity;
     [SerializeField]
@@ -19,7 +23,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_canMove) _rb.MovePosition(_rb.position + _movementVelocity * (speed * Time.fixedDeltaTime));
+        Vector2 currentFacing = transform.TransformDirection(Vector2.up);
+        Vector2 targetFacing = Vector2.up;
+        if (_movementVelocity != Vector2.zero)
+        {
+            targetFacing = _movementVelocity.normalized;
+        }
+        float desiredRotation = Vector2.SignedAngle(currentFacing, targetFacing);
+        float scaledRotation =
+            Mathf.Clamp(desiredRotation, -_rotationSpeed * Time.fixedDeltaTime, _rotationSpeed * Time.fixedDeltaTime);
+
+        float currentAngle = Vector2.SignedAngle(Vector2.up, currentFacing);
+
+        if (_canMove)
+        {
+            _rb.MovePositionAndRotation(
+                _rb.position + _movementVelocity * (_speed * Time.fixedDeltaTime),
+                currentAngle + scaledRotation);
+        }
+        else
+        {
+            _rb.MoveRotation(currentAngle + scaledRotation);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
