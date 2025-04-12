@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: _color
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6444830645528741915, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 18a6675e0dfebff47a6fdac035b10eef, type: 3}
     - target: {fileID: 8684671180583421785, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
       propertyPath: m_Name
       value: ColorDoor
@@ -228,6 +232,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4519123385639058374, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444830645528741915, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 22687f7d8b368a14bb076945d21179e6, type: 3}
     - target: {fileID: 8684671180583421785, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
       propertyPath: m_Name
       value: ColorDoor (1)

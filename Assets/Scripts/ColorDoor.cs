@@ -12,7 +12,7 @@ public class ColorDoor : MonoBehaviour
     void Start()
     {
         var sprite = GetComponent<SpriteRenderer>();
-        sprite.color = _color.GetColor();
+        //sprite.color = _color.GetColor();
 
         _collider = GetComponent<Collider2D>();
 

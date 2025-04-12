@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: _color
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6444830645528741915, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb47630bba4a323428daf0badb6d56b1, type: 3}
     - target: {fileID: 8684671180583421785, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
       propertyPath: m_Name
       value: ColorDoor
@@ -5122,6 +5126,10 @@ PrefabInstance:
       propertyPath: _color
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6444830645528741915, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9bfb6d4288843fa48a522347ca0b5e08, type: 3}
     - target: {fileID: 8684671180583421785, guid: ce94629b1c43f4b43a0dbb58889357da, type: 3}
       propertyPath: m_Name
       value: ColorDoor (1)
