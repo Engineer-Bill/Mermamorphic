@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movementVelocity;
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
+    [SerializeField]
+    private Animator _animator;
 
     private bool _canMove;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,6 +40,13 @@ public class PlayerMovement : MonoBehaviour
         _rb.MovePositionAndRotation(
             _rb.position + _movementVelocity * (_speed * Time.fixedDeltaTime),
             currentAngle + scaledRotation);
+        if (_movementVelocity.SqrMagnitude() < 0.01f)
+        {
+            _animator.SetBool("Swimming", false);
+        } else
+        {
+            _animator.SetBool("Swimming", true);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
