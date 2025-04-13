@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreenMermaid
       objectReference: {fileID: 0}
+    - target: {fileID: 3700250907822994501, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a97580f825f114f4ab14bb0f585889aa, type: 2}
     - target: {fileID: 3758315213375504749, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
       propertyPath: _color
       value: 5

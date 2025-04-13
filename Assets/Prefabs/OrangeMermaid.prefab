@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrangeMermaid
       objectReference: {fileID: 0}
+    - target: {fileID: 3700250907822994501, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 69c26c8fe2ef10e4cbad0d4ec4571c28, type: 2}
     - target: {fileID: 3758315213375504749, guid: 82d2c1421438bc542b4020226cfce460, type: 3}
       propertyPath: _color
       value: 4
