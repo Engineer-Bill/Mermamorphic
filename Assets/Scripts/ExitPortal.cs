@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,9 +19,6 @@ public class ExitPortal : MonoBehaviour
 
     public void Awake()
     {
-        Assert.IsNotNull(_nextScene);
-        Assert.IsNotNull(_levelList);
-        Assert.IsNotNull(_countText);
     }
 
     public void Start()

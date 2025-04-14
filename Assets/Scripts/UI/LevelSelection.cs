@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 
 public class LevelSelection : MonoBehaviour
@@ -12,8 +11,6 @@ public class LevelSelection : MonoBehaviour
 
     public void Awake()
     {
-        Assert.IsNotNull(_level);
-        Assert.IsNotNull(_levelList);
     }
 
     public void Start()

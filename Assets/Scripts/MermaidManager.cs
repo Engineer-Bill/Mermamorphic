@@ -62,6 +62,8 @@ public class MermaidManager : MonoBehaviour
 
     private static MermaidManager _singleton;
 
+    private float _nextSwitchTime = 0.0f;
+
     public static MermaidManager GetSingleton()
     {
         return _singleton;
@@ -70,6 +72,7 @@ public class MermaidManager : MonoBehaviour
     public void Awake()
     {
         _singleton = this;
+        _nextSwitchTime = Time.time;
     }
 
     public void Start()
@@ -83,27 +86,30 @@ public class MermaidManager : MonoBehaviour
 
     public void Update()
     {
-        // Always reinforce which mermaid is controlled
-        foreach (Mermaid child in GetMermaids())
+    }
+
+    public void OnSwitchCharactersLeft(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
-            if (child == _activeMermaid)
+            if (Time.time >= _nextSwitchTime)
             {
-                child.GetComponent<PlayerInput>().enabled = true;
-            } else
-            {
-                child.GetComponent<PlayerInput>().enabled = false;
+                SwitchActiveCharacter(-1);
+                _nextSwitchTime = Time.time + 0.2f;
             }
         }
     }
 
-    public void OnSwitchCharactersLeft()
+    public void OnSwitchCharactersRight(InputAction.CallbackContext context)
     {
-        SwitchActiveCharacter(-1);
-    }
-
-    public void OnSwitchCharactersRight()
-    {
-        SwitchActiveCharacter(1);
+        if (context.performed)
+        {
+            if (Time.time >= _nextSwitchTime)
+            {
+                SwitchActiveCharacter(1);
+                _nextSwitchTime = Time.time + 0.2f;
+            }
+        }
     }
 
     private void SwitchActiveCharacter(int offset)
@@ -204,5 +210,19 @@ public class MermaidManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void OnMove(InputAction.CallbackContext context) {
+        _activeMermaid.GetComponent<PlayerMovement>().OnMove(context);
+    }
+
+    public void OnCombine(InputAction.CallbackContext context)
+    {
+        _activeMermaid.OnCombine(context);
+    }
+
+    public void OnSplit(InputAction.CallbackContext context)
+    {
+        _activeMermaid.OnSplit(context);
     }
 }

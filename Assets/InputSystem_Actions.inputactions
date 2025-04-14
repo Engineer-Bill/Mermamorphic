@@ -348,6 +348,17 @@
                 },
                 {
                     "name": "",
+                    "id": "64ae229f-0b64-4b15-bbdb-6b22cb045341",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch Characters Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9be6ac21-2601-4b61-9958-77a9fff99c79",
                     "path": "<Gamepad>/rightStickPress",
                     "interactions": "",
@@ -364,6 +375,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
+                    "action": "Switch Characters Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "413b0604-cded-4fee-8910-41685d40618d",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Switch Characters Right",
                     "isComposite": false,
                     "isPartOfComposite": false
