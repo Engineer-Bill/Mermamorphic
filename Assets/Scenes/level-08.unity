@@ -5061,6 +5061,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 702497280}
     m_Modifications:
     - target: {fileID: 2102721841146128394, guid: b35bac3b2829486499e8df26f3bd6e98, type: 3}
+      propertyPath: _nextScene
+      value: 
+      objectReference: {fileID: 11400000, guid: 11c9efc490ed86a45b12834787af7666, type: 2}
+    - target: {fileID: 2102721841146128394, guid: b35bac3b2829486499e8df26f3bd6e98, type: 3}
       propertyPath: _requiredMermaidsToLeave
       value: 1
       objectReference: {fileID: 0}
@@ -5918,8 +5922,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d73fd8576af19824891bb38fc65adfe4, type: 3}
-  m_Resource: {fileID: 8300000, guid: d73fd8576af19824891bb38fc65adfe4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bb3129ae0ad95344abc6f2f6d0c5178c, type: 3}
+  m_Resource: {fileID: 8300000, guid: bb3129ae0ad95344abc6f2f6d0c5178c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
