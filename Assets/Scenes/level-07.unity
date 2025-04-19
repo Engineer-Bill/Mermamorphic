@@ -4689,7 +4689,7 @@ MonoBehaviour:
   smoothSpeed: 5
   offset: {x: 0, y: 0}
   minBounds: {x: -10, y: -4.5}
-  maxBounds: {x: 2.5, y: 4.5}
+  maxBounds: {x: 2.5, y: 2.5}
 --- !u!1001 &555035574
 PrefabInstance:
   m_ObjectHideFlags: 0
