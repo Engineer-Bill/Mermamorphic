@@ -49,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void StopMoving()
+    {
+        _movementVelocity = Vector2.zero;
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.performed)

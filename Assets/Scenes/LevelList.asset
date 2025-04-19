@@ -27,4 +27,8 @@ MonoBehaviour:
     _available: 0
   - _level: {fileID: 11400000, guid: 3d451c54b73928b4b8d3a935d8321f93, type: 2}
     _available: 0
+  - _level: {fileID: 11400000, guid: 5f4b1a9d0dc949c4b8c014f05dbc950b, type: 2}
+    _available: 0
+  - _level: {fileID: 11400000, guid: 11c9efc490ed86a45b12834787af7666, type: 2}
+    _available: 0
   _levelSelect: {fileID: 11400000, guid: 8b68c12e244e625419b58a70561166f8, type: 2}

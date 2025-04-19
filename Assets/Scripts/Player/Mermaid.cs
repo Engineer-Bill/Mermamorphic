@@ -85,6 +85,7 @@ public class Mermaid : MonoBehaviour
                 _pickedUpKey = null;
             }
         }
+        GetComponent<PlayerMovement>().StopMoving();
     }
 
 
