@@ -5620,6 +5620,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2551648845501697123, guid: 0db85e427ccff924895f619f5f244d4e, type: 3}
+      propertyPath: _openSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e5a2da2394e93c489b6193711f155b9, type: 3}
     - target: {fileID: 6863949365026303861, guid: 0db85e427ccff924895f619f5f244d4e, type: 3}
       propertyPath: m_Name
       value: ClosedDoor

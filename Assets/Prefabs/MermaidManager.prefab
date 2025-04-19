@@ -66,6 +66,8 @@ MonoBehaviour:
   _changedMermaid:
     m_PersistentCalls:
       m_Calls: []
+  _mergeSound: {fileID: 8300000, guid: 9991978faa9a0b94f8d618cde9f7bec4, type: 3}
+  _splitSound: {fileID: 8300000, guid: 03b995bed0201e346a5c24923c9cc130, type: 3}
 --- !u!114 &6545939650413004262
 MonoBehaviour:
   m_ObjectHideFlags: 0

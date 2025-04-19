@@ -60,6 +60,14 @@ public class MermaidManager : MonoBehaviour
 
     public ChangedMermaidEvent _changedMermaid;
 
+    [SerializeField]
+    private AudioClip _mergeSound;
+
+    [SerializeField]
+    private AudioClip _splitSound;
+
+    private AudioSource _audioSource;
+
     private static MermaidManager _singleton;
 
     private float _nextSwitchTime = 0.0f;
@@ -73,6 +81,12 @@ public class MermaidManager : MonoBehaviour
     {
         _singleton = this;
         _nextSwitchTime = Time.time;
+
+        _audioSource = GetComponent<AudioSource>();                 //SFX Junk
+        if (_audioSource == null)                                   //SFX Junk
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     public void Start()
@@ -116,7 +130,8 @@ public class MermaidManager : MonoBehaviour
     {
         int currentIndex = 0;
         List<Mermaid> mermaids = GetMermaids();
-        for (int i = 0; i < mermaids.Count; i++) {
+        for (int i = 0; i < mermaids.Count; i++)
+        {
             if (mermaids[i] == _activeMermaid)
             {
                 currentIndex = i;
@@ -169,6 +184,7 @@ public class MermaidManager : MonoBehaviour
         var result = Instantiate<Mermaid>(prefab, transform);
         result.transform.position = newMermaidPosition;
         AlertChanged(new MermaidChange(result, new List<Mermaid> { result }, new List<Mermaid> { mermaid1, mermaid2 }));
+        _audioSource.PlayOneShot(_mergeSound); //SFX Junk - merge sound effect plays
         return result;
     }
 
@@ -189,6 +205,7 @@ public class MermaidManager : MonoBehaviour
             var mermaid2 = Instantiate<Mermaid>(mermaidPrefab2, transform);
             mermaid1.transform.position = newMermaidPosition;
             mermaid2.transform.position = newMermaidPosition;
+            _audioSource.PlayOneShot(_splitSound); //SFX Junk
             AlertChanged(new MermaidChange(mermaid1, new List<Mermaid> { mermaid1, mermaid2 }, new List<Mermaid> { mermaid }));
         }
     }
@@ -212,7 +229,8 @@ public class MermaidManager : MonoBehaviour
         return null;
     }
 
-    public void OnMove(InputAction.CallbackContext context) {
+    public void OnMove(InputAction.CallbackContext context)
+    {
         _activeMermaid.GetComponent<PlayerMovement>().OnMove(context);
     }
 

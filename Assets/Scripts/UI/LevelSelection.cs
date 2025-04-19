@@ -7,10 +7,18 @@ public class LevelSelection : MonoBehaviour
     [SerializeField]
     private LevelList _levelList;
 
+    [SerializeField] private AudioClip _selectSound; // SFX Junk
+    private AudioSource _audioSource;
+
     private bool _available;
 
     public void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null)
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     public void Start()
@@ -25,6 +33,8 @@ public class LevelSelection : MonoBehaviour
     public void Selected()
     {
         Invoke("Load", 0.5f);
+        if (_selectSound != null)
+            _audioSource.PlayOneShot(_selectSound);
     }
 
     public void Load()
