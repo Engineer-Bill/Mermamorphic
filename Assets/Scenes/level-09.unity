@@ -4884,7 +4884,7 @@ PrefabInstance:
     - target: {fileID: 2102721841146128394, guid: b35bac3b2829486499e8df26f3bd6e98, type: 3}
       propertyPath: _nextScene
       value: 
-      objectReference: {fileID: 11400000, guid: 11c9efc490ed86a45b12834787af7666, type: 2}
+      objectReference: {fileID: 11400000, guid: 20aa738b293b48a469c9ce7e1b7e856e, type: 2}
     - target: {fileID: 2102721841146128394, guid: b35bac3b2829486499e8df26f3bd6e98, type: 3}
       propertyPath: _requiredMermaidsToLeave
       value: 6

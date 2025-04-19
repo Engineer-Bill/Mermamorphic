@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExitPortal : MonoBehaviour
 {
@@ -70,6 +71,14 @@ public class ExitPortal : MonoBehaviour
 
     private void Exit()
     {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
         _levelList.MakeAvailable(_nextScene);
+        
+        if (currentSceneName == "level-09")
+        {
+            _levelList.MakeAvailable(_nextScene);
+            _nextScene.Load();
+        }
     }
 }
